@@ -15,7 +15,17 @@ app.use(express.json());
 app.use('/add', addRoutes);
 app.use('/health', healthRoutes);
 
-export { app };
-export const handler = (req: VercelRequest, res: VercelResponse) => {
-  return app(req, res);
+// Handler para a Vercel com tratamento de erro
+const handler = async (req: VercelRequest, res: VercelResponse) => {
+  try {
+    return await app(req, res);
+  } catch (error) {
+    console.error('Erro na função serverless:', error);
+    res.status(500).json({ 
+      error: 'Erro interno do servidor',
+      message: error instanceof Error ? error.message : 'Erro desconhecido'
+    });
+  }
 };
+
+export default handler;
