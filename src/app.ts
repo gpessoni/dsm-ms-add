@@ -1,8 +1,8 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import addRoutes from '../src/routes/add.routes';
-import healthRoutes from '../src/routes/health.routes';
+import addRoutes from './routes/add.routes';
+import healthRoutes from './routes/health.routes';
 import { VercelRequest, VercelResponse } from '@vercel/node';
 
 dotenv.config();
