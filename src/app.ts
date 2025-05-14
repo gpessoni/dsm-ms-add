@@ -12,7 +12,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Rotas
 app.use('/add', addRoutes);
 app.use('/health', healthRoutes);
 
