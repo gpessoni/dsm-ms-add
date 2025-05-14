@@ -16,8 +16,7 @@ app.use(express.json());
 app.use('/add', addRoutes);
 app.use('/health', healthRoutes);
 
-const handler = (req: VercelRequest, res: VercelResponse) => {
+export { app };
+export const handler = (req: VercelRequest, res: VercelResponse) => {
   return app(req, res);
 };
-
-export default handler; 
